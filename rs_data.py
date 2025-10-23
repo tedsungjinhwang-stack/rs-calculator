@@ -126,6 +126,10 @@ def get_all_tickers(config):
     """설정에 따라 종목 리스트 수집"""
     all_tickers = set()
 
+    # 기준 지수(SPY)는 항상 포함 (ETF이지만 RS 계산에 필수)
+    reference_ticker = config.get('REFERENCE_TICKER', 'SPY')
+    all_tickers.add(reference_ticker)
+
     # 기본 지수들
     if config.get('SP500', False):
         print("📊 S&P 500 종목 수집 중...")
