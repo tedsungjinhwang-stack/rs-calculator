@@ -1,13 +1,13 @@
-# RS Calculator Extended 🚀
+# RS Calculator 🚀
 
-IBD 스타일의 Relative Strength (상대 강도) 계산기 - 확장 버전
+IBD 스타일의 Relative Strength (상대 강도) 계산기
 
-**기존 대비 개선사항:**
-- ✅ S&P 500 + Nasdaq 100 + S&P 400/600 (기본)
+**주요 특징:**
+- ✅ S&P 500 + Nasdaq 100 + S&P 400/600
 - ✅ Russell 2000 소형주 지수 포함
 - ✅ 시가총액 $500M 이상 전체 종목 커버
-- ✅ **약 2,500-3,000 종목 분석** (기존 1,336개 → 2배 이상)
-- ✅ OKLO 같은 신규 상장주 포함!
+- ✅ **약 2,500-3,000 종목 분석**
+- ✅ OKLO 같은 신규 상장주 포함
 - ✅ GitHub Actions 자동화 (매일 업데이트)
 
 ---
@@ -23,14 +23,14 @@ IBD(Investor's Business Daily) 방식의 상대 강도 지표:
 
 ## 🎯 주요 기능
 
-### 1. 확장된 종목 범위
+### 1. 종목 범위
 ```yaml
 # config.yaml
 NQ100: true           # Nasdaq 100
 SP500: true           # S&P 500
 SP400: true           # S&P MidCap 400
 SP600: true           # S&P SmallCap 600
-INCLUDE_RUSSELL_2000: true    # Russell 2000 추가
+INCLUDE_RUSSELL_2000: true    # Russell 2000
 INCLUDE_BY_MARKET_CAP: true   # 시총 기준 추가
 ```
 
@@ -54,8 +54,8 @@ MIN_AVG_VOLUME: 100000        # 최소 평균 거래량
 
 ```bash
 # 1. 저장소 클론
-git clone https://github.com/YOUR_USERNAME/rs-calculator-extended.git
-cd rs-calculator-extended
+git clone https://github.com/tedsungjinhwang-stack/rs-calculator.git
+cd rs-calculator
 
 # 2. 패키지 설치
 pip install -r requirements.txt
@@ -77,20 +77,6 @@ cat output/rs_stocks.csv
 
 ## ⚙️ GitHub Actions 설정
 
-### 1. GitHub에 저장소 생성
-
-```bash
-# GitHub에서 새 저장소 생성 후
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/rs-calculator-extended.git
-git push -u origin main
-```
-
-### 2. GitHub Actions 자동 실행 설정
-
 `.github/workflows/calculate-rs.yml` 파일이 이미 포함되어 있습니다!
 
 **자동 실행 일정:**
@@ -103,17 +89,17 @@ git push -u origin main
 3. `Calculate RS` workflow 선택
 4. `Run workflow` 버튼 클릭
 
-### 3. 결과 확인
+### 결과 확인
 
 - **최신 CSV**: `output/rs_stocks.csv`
-- **Raw URL**: `https://raw.githubusercontent.com/YOUR_USERNAME/rs-calculator-extended/main/output/rs_stocks.csv`
+- **Raw URL**: `https://raw.githubusercontent.com/tedsungjinhwang-stack/rs-calculator/main/output/rs_stocks.csv`
 
 ---
 
 ## 📁 프로젝트 구조
 
 ```
-rs-calculator-extended/
+rs-calculator/
 ├── .github/
 │   └── workflows/
 │       └── calculate-rs.yml    # GitHub Actions 워크플로우
@@ -141,7 +127,7 @@ SP500: true
 SP400: true
 SP600: true
 
-# 확장 옵션
+# 추가 옵션
 INCLUDE_RUSSELL_2000: true      # Russell 2000 포함 여부
 INCLUDE_BY_MARKET_CAP: true     # 시총 기준 추가 여부
 
@@ -170,7 +156,7 @@ import pandas as pd
 import requests
 from io import StringIO
 
-url = "https://raw.githubusercontent.com/YOUR_USERNAME/rs-calculator-extended/main/output/rs_stocks.csv"
+url = "https://raw.githubusercontent.com/tedsungjinhwang-stack/rs-calculator/main/output/rs_stocks.csv"
 response = requests.get(url)
 df = pd.read_csv(StringIO(response.text))
 
@@ -216,5 +202,3 @@ MIT License
 ## 🙏 크레딧
 
 원본 프로젝트: [skyte/relative-strength](https://github.com/skyte/relative-strength)
-
-확장 버전: 더 많은 종목 커버 + GitHub Actions 자동화
