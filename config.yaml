@@ -1,0 +1,33 @@
+# RS Calculator Extended Configuration
+# 확장된 범위로 더 많은 종목 분석
+
+# 데이터 소스
+DATA_SOURCE: YAHOO
+
+# RS 계산 기준 지수
+REFERENCE_TICKER: SPY
+
+# 최소 RS Percentile
+MIN_PERCENTILE: 70
+
+# 포함할 지수 (기본 범위)
+NQ100: true      # Nasdaq 100
+SP500: true      # S&P 500
+SP400: true      # S&P 400 (Mid Cap)
+SP600: true      # S&P 600 (Small Cap)
+
+# 확장 옵션
+INCLUDE_RUSSELL_2000: true    # Russell 2000 소형주 지수
+INCLUDE_BY_MARKET_CAP: true   # 시가총액 기준 추가
+
+# 시가총액 필터 (INCLUDE_BY_MARKET_CAP이 true일 때)
+MIN_MARKET_CAP: 500000000     # $500M 이상
+MAX_TICKERS_BY_CAP: 1000      # 시가총액 상위 N개
+
+# 데이터 품질 필터
+MIN_TRADING_DAYS: 200         # 최소 거래일 수
+MIN_AVG_VOLUME: 100000        # 최소 평균 거래량
+
+# GitHub Actions 설정
+AUTO_COMMIT: true             # 결과 자동 커밋
+OUTPUT_DIR: output            # 결과 저장 디렉토리
