@@ -25,7 +25,7 @@ MIN_MARKET_CAP: 500000000     # $500M 이상
 MAX_TICKERS_BY_CAP: 1000      # 시가총액 상위 N개
 
 # 데이터 품질 필터
-MIN_TRADING_DAYS: 200         # 최소 거래일 수
+MIN_TRADING_DAYS: 350         # 최소 거래일 수 (멀티 기간 RS 계산용)
 MIN_AVG_VOLUME: 100000        # 최소 평균 거래량
 
 # GitHub Actions 설정

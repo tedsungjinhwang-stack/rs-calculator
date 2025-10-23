@@ -178,7 +178,8 @@ def fetch_stock_data(ticker, start_date, end_date, config):
         # 가격 데이터
         hist = stock.history(start=start_date, end=end_date)
 
-        min_days = config.get('MIN_TRADING_DAYS', 200)
+        # 멀티 기간 RS 계산을 위해 최소 350일 필요 (252일 + 여유)
+        min_days = config.get('MIN_TRADING_DAYS', 350)
         if hist.empty or len(hist) < min_days:
             return None
 
@@ -219,7 +220,7 @@ def fetch_stock_data(ticker, start_date, end_date, config):
 def collect_all_data(tickers, config):
     """모든 종목 데이터 수집"""
     end_date = datetime.now()
-    start_date = end_date - timedelta(days=400)  # 1년 + 여유
+    start_date = end_date - timedelta(days=600)  # 멀티 기간 RS 계산용 (2년 이상)
 
     print(f"\n📅 데이터 수집 기간: {start_date.date()} ~ {end_date.date()}")
     print(f"📊 총 {len(tickers)}개 종목 데이터 수집 시작...\n")
